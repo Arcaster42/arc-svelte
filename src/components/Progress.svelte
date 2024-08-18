@@ -1,18 +1,31 @@
 <script lang="ts">
-	const { type = 'linear', progress }: { type?: 'linear'; progress: string } = $props();
+	const {
+		type = 'linear',
+		progress,
+		showProgress
+	}: { type?: 'linear'; progress: string; showProgress?: boolean } = $props();
 </script>
 
 <div class="wrapper">
+	{#if showProgress}
+		<span class="progress">{progress + '%'}</span>
+	{/if}
 	<div class="bar" style={`width: ${progress}%`}></div>
 </div>
 
 <style lang="scss" scoped>
 	.wrapper {
+		position: relative;
 		width: 100%;
-		height: 10px;
+		height: 5px;
 		background-color: rgba(0, 0, 0, 0.2);
 		border-radius: 10px;
-		overflow: hidden;
+		overflow: visible; /* Add this line */
+
+		.progress {
+			position: absolute;
+			top: -20px;
+		}
 
 		.bar {
 			height: 100%;

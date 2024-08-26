@@ -6,7 +6,7 @@
 		center,
 		left,
 		striped,
-		width = '100%'
+		width = '80%'
 	}: {
 		title?: string;
 		items: any[];

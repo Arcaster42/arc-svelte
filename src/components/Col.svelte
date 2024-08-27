@@ -1,10 +1,12 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
 
-	const { children }: { children?: Snippet } = $props();
+	type AlignStyle = 'start' | 'center' | 'end' | 'flex-start' | 'flex-end';
+
+	const { children, align = 'center' }: { children?: Snippet; align?: AlignStyle } = $props();
 </script>
 
-<div class="col">
+<div class="col" style={`align-items: ${align};`}>
 	{#if children}
 		{@render children()}
 	{/if}

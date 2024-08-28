@@ -30,7 +30,7 @@
 		"@sveltejs/adapter-auto": "^3.0.0",
 		"@sveltejs/kit": "^2.0.0",
 		"@sveltejs/package": "^2.0.0",
-		"@sveltejs/vite-plugin-svelte": "^3.0.0",
+		"@sveltejs/vite-plugin-svelte": "^4.0.0-next.6",
 		"@types/eslint": "^9.6.0",
 		"eslint": "^9.0.0",
 		"eslint-config-prettier": "^9.1.0",
@@ -55,5 +55,13 @@
 		"@fortawesome/free-regular-svg-icons": "^6.6.0",
 		"@fortawesome/free-solid-svg-icons": "^6.6.0",
 		"@mdi/js": "^7.4.47"
-	}
+	},
+	"author": "TJ Epperson",
+	"keywords": [
+		"svelte",
+		"component",
+		"components",
+		"library"
+	],
+	"license": "MIT"
 }

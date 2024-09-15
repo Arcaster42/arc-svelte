@@ -2,6 +2,7 @@
 	import Icon from './Icon.svelte';
 
 	let {
+		className,
 		type = 'default',
 		label,
 		color = 'none',
@@ -14,6 +15,7 @@
 		onclick,
 		refId
 	}: {
+		className?: string;
 		type?: 'default' | 'outline' | 'flat' | 'icon';
 		label?: string;
 		color?: 'none' | 'primary' | 'secondary' | 'warning' | 'danger';
@@ -31,7 +33,7 @@
 {#if type !== 'icon'}
 	<button
 		id={refId}
-		class={`button ${type} ${color} ${size}`}
+		class={`button ${type} ${color} ${size} ${className}`}
 		class:loading
 		class:block
 		{disabled}

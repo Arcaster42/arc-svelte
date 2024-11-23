@@ -55,7 +55,7 @@
 			<Icon {icon} color={textColor} {size} />
 		{/if}
 		{#if loading}
-			<div class="loader {size}"></div>
+			<div class="loader {size} {color}"></div>
 		{/if}
 	</button>
 {/if}
@@ -215,49 +215,78 @@
 	}
 
 	.loader {
-		border: 5px solid #f3f3f3;
-		border-top: 5px solid #3498db;
-		border-radius: 50%;
-		width: 10px;
-		height: 10px;
-		animation: spin 2s linear infinite;
+  color: #ffffff;
+  font-size: 1em;
+  overflow: hidden;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: mltShdSpin 1.7s infinite ease, round 1.7s infinite ease;
+}
 
-		&.large {
-			border: 10px solid #f3f3f3;
-			border-top: 10px solid #3498db;
-			width: 20px;
-			height: 20px;
-		}
+@keyframes mltShdSpin {
+  0% {
+    box-shadow: 0 -0.83em 0 -0.4em,
+    0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em,
+    0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+  }
+  5%,
+  95% {
+    box-shadow: 0 -0.83em 0 -0.4em, 
+    0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 
+    0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+  }
+  10%,
+  59% {
+    box-shadow: 0 -0.83em 0 -0.4em, 
+    -0.087em -0.825em 0 -0.42em, -0.173em -0.812em 0 -0.44em, 
+    -0.256em -0.789em 0 -0.46em, -0.297em -0.775em 0 -0.477em;
+  }
+  20% {
+    box-shadow: 0 -0.83em 0 -0.4em, -0.338em -0.758em 0 -0.42em,
+     -0.555em -0.617em 0 -0.44em, -0.671em -0.488em 0 -0.46em, 
+     -0.749em -0.34em 0 -0.477em;
+  }
+  38% {
+    box-shadow: 0 -0.83em 0 -0.4em, -0.377em -0.74em 0 -0.42em,
+     -0.645em -0.522em 0 -0.44em, -0.775em -0.297em 0 -0.46em, 
+     -0.82em -0.09em 0 -0.477em;
+  }
+  100% {
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 
+    0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+  }
+}
+
+@keyframes round {
+  0% { transform: rotate(0deg) }
+  100% { transform: rotate(360deg) }
+}
+
+
+.icon-button {
+	width: 50px;
+	height: 50px;
+	border: none;
+	padding: 0;
+	margin: 0;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	border-radius: 50%;
+
+	.primary {
+		background-color: $primary-color;
 	}
 
-	@keyframes spin {
-		0% {
-			transform: rotate(0deg);
-		}
-		100% {
-			transform: rotate(360deg);
-		}
+	&.small {
+		width: 35px;
+		height: 35px;
 	}
-
-	.icon-button {
-		width: 50px;
-		height: 50px;
-		border: none;
-		padding: 0;
-		margin: 0;
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		cursor: pointer;
-		border-radius: 50%;
-
-		.primary {
-			background-color: $primary-color;
-		}
-
-		&.small {
-			width: 35px;
-			height: 35px;
-		}
-	}
+}
 </style>

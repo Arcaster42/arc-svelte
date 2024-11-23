@@ -1,9 +1,11 @@
 {
-    "tabWidth": 2,
-    "useTabs": false,
-    "singleQuote": true,
-    "semi": false,
-    "svelteSortOrder": "scripts-markup-styles",
-    "svelteStrictMode": true,
-    "svelteBracketNewLine": true
-  }
+  "plugins": ["prettier-plugin-svelte"],
+  "tabWidth": 2,
+  "useTabs": false,
+  "singleQuote": true,
+  "semi": false,
+  "svelteStrictMode": true,
+  "svelteBracketNewLine": true,
+  "trailingComma": "none",
+  "svelteIndentScriptAndStyle": true
+}

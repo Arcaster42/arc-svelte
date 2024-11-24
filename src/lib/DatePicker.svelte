@@ -100,6 +100,7 @@
           <tr>
             <th>
               <Button
+                type="icon"
                 icon="mdiArrowLeft"
                 size="small"
                 onclick={() => selectYear(selectedYear - 1)}
@@ -108,6 +109,7 @@
             <th colspan="5">{selectedYear}</th>
             <th>
               <Button
+                type="icon"
                 icon="mdiArrowRight"
                 size="small"
                 onclick={() => selectYear(selectedYear + 1)}
@@ -118,6 +120,7 @@
         <tr>
           <th>
             <Button
+              type="icon"
               icon="mdiArrowLeft"
               size="small"
               color="primary-dark"
@@ -132,6 +135,7 @@
           </th>
           <th colspan="1">
             <Button
+              type="icon"
               icon="mdiArrowRight"
               size="small"
               color="primary-dark"

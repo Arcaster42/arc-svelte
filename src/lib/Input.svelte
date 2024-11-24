@@ -7,7 +7,9 @@
     value = $bindable(),
     validations,
     style,
-    width,
+    width = '200px',
+    minInlineSize = '200px',
+    fitContent,
     minTime,
     maxTime,
     increments = ['00', '30']
@@ -18,6 +20,8 @@
     validations?: ((val: string) => true | string)[]
     style?: string
     width?: string
+    minInlineSize?: string
+    fitContent?: boolean
     minTime?: string
     maxTime?: string
     increments?: ('00' | '15' | '30' | '45')[]
@@ -52,7 +56,9 @@
     onfocusout={() => (focused = !!value || false)}
     onchange={() => validate()}
     {style}
-    style:width
+    style:min-inline-size={minInlineSize}
+    style:width={fitContent ? '' : width}
+    style:field-sizing={fitContent ? 'content' : 'fixed'}
     style:height={type === 'time' ? 'auto' : '40px'}
     placeholder={type === 'time' ? 'HH:MM' : ''}
     min={minTime}
@@ -99,7 +105,6 @@
 
   .input {
     height: 40px;
-    width: 300px;
     font-size: large;
     border: none;
     border-radius: 5px;

@@ -185,16 +185,14 @@
 {/if}
 
 <style lang="scss" scoped>
-  @import '../style/variables';
-
   table {
     border-collapse: collapse;
-    border: 3px solid $primary-color-dark;
+    border: 3px solid variables.$primary-color-dark;
   }
 
   th {
     text-align: center;
-    background-color: $primary-color-dark;
+    background-color: variables.$primary-color-dark;
     color: white;
     padding: 4px;
   }

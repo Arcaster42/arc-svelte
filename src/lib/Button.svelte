@@ -67,8 +67,6 @@
 {/if}
 
 <style lang="scss" scoped>
-  @import '../style/variables';
-
   .button {
     font-family: Roboto;
     text-transform: uppercase;
@@ -144,78 +142,78 @@
 
   .none {
     color: black;
-    background-color: $default-color;
+    background-color: variables.$default-color;
 
     &:hover {
-      background-color: $default-color-accent;
+      background-color: variables.$default-color-accent;
 
       &:active {
-        background-color: $default-color-active;
+        background-color: variables.$default-color-active;
       }
     }
   }
 
   .primary {
     color: white;
-    background-color: $primary-color;
+    background-color: variables.$primary-color;
 
     &:hover {
-      background-color: $primary-color-accent;
+      background-color: variables.$primary-color-accent;
 
       &:active {
-        background-color: $primary-color-active;
+        background-color: variables.$primary-color-active;
       }
     }
   }
 
   .primary-dark {
     color: white;
-    background-color: $primary-color-dark;
+    background-color: variables.$primary-color-dark;
 
     &:hover {
-      background-color: $primary-color-dark-accent;
+      background-color: variables.$primary-color-dark-accent;
 
       &:active {
-        background-color: $primary-color-dark-active;
+        background-color: variables.$primary-color-dark-active;
       }
     }
   }
 
   .warning {
     color: white;
-    background-color: $warning-color;
+    background-color: variables.$warning-color;
 
     &:hover {
-      background-color: $warning-color-accent;
+      background-color: variables.$warning-color-accent;
 
       &:active {
-        background-color: $warning-color-active;
+        background-color: variables.$warning-color-active;
       }
     }
   }
 
   .danger {
     color: white;
-    background-color: $danger-color;
+    background-color: variables.$danger-color;
 
     &:hover {
-      background-color: $danger-color-accent;
+      background-color: variables.$danger-color-accent;
 
       &:active {
-        background-color: $danger-color-active;
+        background-color: variables.$danger-color-active;
       }
     }
   }
 
   .success {
     color: white;
-    background-color: $success-color;
+    background-color: variables.$success-color;
 
     &:hover {
-      background-color: $success-color-accent;
+      background-color: variables.$success-color-accent;
 
       &:active {
-        background-color: $success-color-active;
+        background-color: variables.$success-color-active;
       }
     }
   }
@@ -311,7 +309,7 @@
     border-radius: 50%;
 
     .primary {
-      background-color: $primary-color;
+      background-color: variables.$primary-color;
     }
 
     &.small {

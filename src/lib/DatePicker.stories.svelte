@@ -10,4 +10,7 @@
 </script>
 
 <Story name="Primary" args={{ label: 'DatePicker', color: 'primary' }} />
-<Story name="Range" args={{ label: 'DatePicker', color: 'primary', allowRange: true }} />
+<Story
+  name="Range"
+  args={{ label: 'DatePicker', color: 'primary', allowRange: true }}
+/>

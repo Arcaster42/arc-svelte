@@ -6,7 +6,7 @@
     style
   }: {
     type?: 'linear'
-    progress: string
+    progress: string | number
     showProgress?: boolean
     style?: string
   } = $props()
@@ -14,9 +14,9 @@
 
 <div class="wrapper">
   {#if showProgress}
-    <span class="progress" {style}>{progress + '%'}</span>
+    <span class="progress" {style}>{progress.toString().includes('%') ? progress : progress + '%'}</span>
   {/if}
-  <div class="bar" style={`width: ${progress}%; ${style}`}></div>
+  <div class="bar" style={`width: ${progress.toString().includes('%') ? progress : progress + '%'}; ${style}`}></div>
 </div>
 
 <style lang="scss" scoped>
@@ -26,7 +26,7 @@
     height: 5px;
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: 10px;
-    overflow: visible; /* Add this line */
+    overflow: visible;
 
     .progress {
       position: absolute;
@@ -35,7 +35,7 @@
 
     .bar {
       height: 100%;
-      background-color: #3b82f6;
+      background-color: variables.$primary-color;
       width: 0%;
       transition: width 1.25s ease-in-out;
       border-radius: 10px;

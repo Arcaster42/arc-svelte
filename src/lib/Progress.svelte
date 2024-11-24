@@ -13,10 +13,17 @@
 </script>
 
 <div class="wrapper">
-  {#if showProgress}
-    <span class="progress" {style}>{progress.toString().includes('%') ? progress : progress + '%'}</span>
+  {#if type === 'linear'}
+    {#if showProgress}
+      <span class="progress" {style}>
+        {progress.toString().includes('%') ? progress : progress + '%'}
+      </span>
+    {/if}
+    <div
+      class="bar"
+      style={`width: ${progress.toString().includes('%') ? progress : progress + '%'}; ${style}`}
+    ></div>
   {/if}
-  <div class="bar" style={`width: ${progress.toString().includes('%') ? progress : progress + '%'}; ${style}`}></div>
 </div>
 
 <style lang="scss" scoped>

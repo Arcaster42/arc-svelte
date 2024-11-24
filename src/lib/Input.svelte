@@ -89,17 +89,16 @@
     position: absolute;
     font-size: large;
     font-weight: 300;
-    top: 50%;
+    top: 30%;
     left: 10%;
-    transform: translate(-50%, -50%);
     transition: all 0.3s ease-in-out;
 
     &.focused {
       font-size: small;
       font-weight: 100;
-      top: 10px;
-      left: 10%;
-      transform: translate(-50%, -50%);
+      top: 5px;
+      left: 10px;
+      transform: none;
     }
   }
 

@@ -54,7 +54,8 @@
     {type}
     onfocus={() => (focused = true)}
     onfocusout={() => (focused = !!value || false)}
-    onchange={() => validate()}
+    oninput={() => validate()}
+    class:invalid={error}
     {style}
     style:min-inline-size={minInlineSize}
     style:width={fitContent ? '' : width}
@@ -103,7 +104,7 @@
   }
 
   .input {
-    height: 40px;
+    height: 35px;
     font-size: large;
     border: none;
     border-radius: 5px;
@@ -116,13 +117,16 @@
     &:hover {
       background-color: rgb(225, 225, 225);
     }
+
+    &.invalid {
+      border: 2px solid red;
+    }
   }
 
   .error {
     position: absolute;
     color: red;
-    bottom: -30px;
-    left: 60px;
-    transform: translate(-50%, -50%);
+    bottom: -20px;
+    left: 0;
   }
 </style>

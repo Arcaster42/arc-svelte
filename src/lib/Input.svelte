@@ -81,6 +81,8 @@
 </div>
 
 <style lang="scss" scoped>
+  @import '../style/variables.scss';
+  
   .container {
     position: relative;
     display: inline-block;
@@ -119,13 +121,13 @@
     }
 
     &.invalid {
-      border: 2px solid red;
+      border: 2px solid $danger-color;
     }
   }
 
   .error {
     position: absolute;
-    color: red;
+    color: $danger-color;
     bottom: -20px;
     left: 0;
   }

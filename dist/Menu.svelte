@@ -1,64 +1,69 @@
 <script lang="ts">
-	import { onDestroy, onMount } from 'svelte';
-	import Button from './Button.svelte';
-	import { slide } from 'svelte/transition';
+  import { onDestroy, onMount } from 'svelte'
+  import Button from './Button.svelte'
+  import { slide } from 'svelte/transition'
+  import type { ButtonType } from './types.ts'
 
-	let {
-		label,
-		items,
-		buttonType,
-		icon,
-		textColor
-	}: {
-		label: string;
-		items: { label: string; link?: string }[];
-		buttonType?: 'default' | 'outline' | 'flat' | 'icon';
-		icon?: keyof typeof import('@mdi/js');
-		textColor?: string;
-	} = $props();
-	let menu: Element | undefined = $state(undefined);
-	let buttonId: string = $state('');
-	let showMenu = $state(false);
+  let {
+    label,
+    items,
+    buttonType,
+    icon,
+    textColor
+  }: {
+    label: string
+    items: { label: string; link?: string }[]
+    buttonType?: ButtonType
+    icon?: keyof typeof import('@mdi/js')
+    textColor?: string
+  } = $props()
+  let menu: Element | undefined = $state(undefined)
+  let buttonId: string = $state('')
+  let showMenu = $state(false)
 
-	function handleOutsideClick(e: MouseEvent) {
-		const buttonRef = document.getElementById(buttonId);
-		if (showMenu && !buttonRef?.contains(e?.target as Node) && !menu?.contains(e?.target as Node)) {
-			showMenu = false;
-		}
-	}
+  function handleOutsideClick(e: MouseEvent) {
+    const buttonRef = document.getElementById(buttonId)
+    if (
+      showMenu &&
+      !buttonRef?.contains(e?.target as Node) &&
+      !menu?.contains(e?.target as Node)
+    ) {
+      showMenu = false
+    }
+  }
 
-	onMount(() => {
-		const randomId = String(Math.floor(Math.random() * 100));
-		buttonId = randomId;
-		document.addEventListener('click', handleOutsideClick);
+  onMount(() => {
+    const randomId = String(Math.floor(Math.random() * 100))
+    buttonId = randomId
+    document.addEventListener('click', handleOutsideClick)
 
-		onDestroy(() => {
-			document.removeEventListener('click', handleOutsideClick);
-		});
-	});
+    onDestroy(() => {
+      document.removeEventListener('click', handleOutsideClick)
+    })
+  })
 
-	onDestroy(() => {});
+  onDestroy(() => {})
 </script>
 
 <div class="menu-wrapper">
-	<Button
-		{label}
-		type={buttonType}
-		{icon}
-		size="large"
-		color="primary"
-		{textColor}
-		onclick={() => (showMenu = !showMenu)}
-		refId={buttonId}
-	/>
-	{#if showMenu}
-		<ul class="list" bind:this={menu} in:slide out:slide>
-			{#each items as item}
-				<li class="item">{item.label}</li>
-				<div class="divider"></div>
-			{/each}
-		</ul>
-	{/if}
+  <Button
+    {label}
+    type={buttonType}
+    {icon}
+    size="large"
+    color="primary"
+    {textColor}
+    onclick={() => (showMenu = !showMenu)}
+    refId={buttonId}
+  />
+  {#if showMenu}
+    <ul class="list" bind:this={menu} in:slide out:slide>
+      {#each items as item}
+        <li class="item">{item.label}</li>
+        <div class="divider"></div>
+      {/each}
+    </ul>
+  {/if}
 </div>
 
 <style scoped>.list {

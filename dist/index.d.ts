@@ -8,3 +8,6 @@ export { default as Menu } from './Menu.svelte';
 export { default as Progress } from './Progress.svelte';
 export { default as Row } from './Row.svelte';
 export { default as Table } from './Table.svelte';
+export { default as DatePicker } from './DatePicker.svelte';
+export { default as TimePicker } from './TimePicker.svelte';
+export { default as Calendar } from './Calendar.svelte';

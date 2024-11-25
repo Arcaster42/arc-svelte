@@ -1,23 +1,17 @@
-interface $$__sveltets_2_IsomorphicComponent<Props extends Record<string, any> = any, Events extends Record<string, any> = any, Slots extends Record<string, any> = any, Exports = {}, Bindings = string> {
-    new (options: import('svelte').ComponentConstructorOptions<Props>): import('svelte').SvelteComponent<Props, Events, Slots> & {
-        $$bindings?: Bindings;
-    } & Exports;
-    (internal: unknown, props: Props & {
-        $$events?: Events;
-        $$slots?: Slots;
-    }): Exports & {
-        $set?: any;
-        $on?: any;
-    };
-    z_$$bindings?: Bindings;
-}
-declare const Input: $$__sveltets_2_IsomorphicComponent<{
-    type: "text" | "password";
-    title: string;
+import type { InputType } from './types.ts';
+type $$ComponentProps = {
+    type: InputType;
+    title?: string;
     value: string;
     validations?: ((val: string) => true | string)[];
-}, {
-    [evt: string]: CustomEvent<any>;
-}, {}, {}, "value">;
-type Input = InstanceType<typeof Input>;
+    style?: string;
+    width?: string;
+    minInlineSize?: string;
+    fitContent?: boolean;
+    minTime?: string;
+    maxTime?: string;
+    increments?: ('00' | '15' | '30' | '45')[];
+};
+declare const Input: import("svelte").Component<$$ComponentProps, {}, "value">;
+type Input = ReturnType<typeof Input>;
 export default Input;

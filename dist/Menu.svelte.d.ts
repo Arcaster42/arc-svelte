@@ -1,27 +1,14 @@
-interface $$__sveltets_2_IsomorphicComponent<Props extends Record<string, any> = any, Events extends Record<string, any> = any, Slots extends Record<string, any> = any, Exports = {}, Bindings = string> {
-    new (options: import('svelte').ComponentConstructorOptions<Props>): import('svelte').SvelteComponent<Props, Events, Slots> & {
-        $$bindings?: Bindings;
-    } & Exports;
-    (internal: unknown, props: Props & {
-        $$events?: Events;
-        $$slots?: Slots;
-    }): Exports & {
-        $set?: any;
-        $on?: any;
-    };
-    z_$$bindings?: Bindings;
-}
-declare const Menu: $$__sveltets_2_IsomorphicComponent<{
+import type { ButtonType } from './types.ts';
+type $$ComponentProps = {
     label: string;
     items: {
         label: string;
         link?: string;
     }[];
-    buttonType?: "default" | "outline" | "flat" | "icon";
-    icon?: keyof typeof import("@mdi/js");
+    buttonType?: ButtonType;
+    icon?: keyof typeof import('@mdi/js');
     textColor?: string;
-}, {
-    [evt: string]: CustomEvent<any>;
-}, {}, {}, "">;
-type Menu = InstanceType<typeof Menu>;
+};
+declare const Menu: import("svelte").Component<$$ComponentProps, {}, "">;
+type Menu = ReturnType<typeof Menu>;
 export default Menu;

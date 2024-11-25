@@ -1,15 +1,18 @@
 <script lang="ts">
-	import type { Snippet } from 'svelte';
+  import type { Snippet } from 'svelte'
+  import type { AlignStyle } from './types.ts'
 
-	type AlignStyle = 'start' | 'center' | 'end' | 'flex-start' | 'flex-end';
-
-	const { children, align = 'center' }: { children?: Snippet; align?: AlignStyle } = $props();
+  const {
+    children,
+    align = 'center',
+    gapless
+  }: { children?: Snippet; align?: AlignStyle; gapless?: boolean } = $props()
 </script>
 
-<div class="col" style={`align-items: ${align};`}>
-	{#if children}
-		{@render children()}
-	{/if}
+<div class="col" class:gapless style={`align-items: ${align};`}>
+  {#if children}
+    {@render children()}
+  {/if}
 </div>
 
 <style scoped>.col {
@@ -18,4 +21,16 @@
   align-items: center;
   width: 100%;
   padding: 4px;
+}
+.col.gapless {
+  padding: 0;
+}
+
+:global(.col > *) {
+  width: 100%;
+  height: auto;
+}
+:global(.col > *).gapless {
+  padding: 0;
+  margin: 0;
 }</style>

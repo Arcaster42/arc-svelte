@@ -1,38 +1,38 @@
 <script lang="ts">
-	import type { Snippet } from 'svelte';
+  import type { Snippet } from 'svelte'
 
-	const {
-		titleSnippet,
-		subtitleSnippet,
-		contentSnippet,
-		actionsSnippet,
-		width = '300px',
-		height = '300px'
-	}: {
-		titleSnippet?: Snippet;
-		subtitleSnippet?: Snippet;
-		contentSnippet?: Snippet;
-		actionsSnippet?: Snippet;
-		width?: string;
-		height?: string;
-	} = $props();
+  const {
+    titleSnippet,
+    subtitleSnippet,
+    contentSnippet,
+    actionsSnippet,
+    width = '300px',
+    height = '300px'
+  }: {
+    titleSnippet?: Snippet
+    subtitleSnippet?: Snippet
+    contentSnippet?: Snippet
+    actionsSnippet?: Snippet
+    width?: string
+    height?: string
+  } = $props()
 </script>
 
 <div class="card" style:height style:width>
-	{#if titleSnippet}
-		<div class="title">
-			{@render titleSnippet()}
-			{#if subtitleSnippet}
-				<div class="subtitle">{@render subtitleSnippet()}</div>
-			{/if}
-		</div>
-	{/if}
-	{#if contentSnippet}
-		<div class="content">{@render contentSnippet()}</div>
-	{/if}
-	{#if actionsSnippet}
-		<div class="actions">{@render actionsSnippet()}</div>
-	{/if}
+  {#if titleSnippet}
+    <div class="title">
+      {@render titleSnippet()}
+      {#if subtitleSnippet}
+        <div class="subtitle">{@render subtitleSnippet()}</div>
+      {/if}
+    </div>
+  {/if}
+  {#if contentSnippet}
+    <div class="content">{@render contentSnippet()}</div>
+  {/if}
+  {#if actionsSnippet}
+    <div class="actions">{@render actionsSnippet()}</div>
+  {/if}
 </div>
 
 <style scoped>.card {

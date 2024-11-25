@@ -1,42 +1,42 @@
 <script lang="ts">
-	const {
-		title,
-		items,
-		strings,
-		center,
-		left,
-		striped,
-		width = '80%'
-	}: {
-		title?: string;
-		items: any[];
-		strings?: { [key: string]: string };
-		center?: boolean;
-		left?: boolean;
-		striped?: boolean;
-		width?: string;
-	} = $props();
+  const {
+    title,
+    items,
+    strings,
+    center,
+    left,
+    striped,
+    width = '80%'
+  }: {
+    title?: string
+    items: any[]
+    strings?: { [key: string]: string }
+    center?: boolean
+    left?: boolean
+    striped?: boolean
+    width?: string
+  } = $props()
 </script>
 
 <table class="table" style={`width: ${width};`}>
-	<thead class="head">
-		<tr>
-			{#each Object.keys(items[0]) as itemKey}
-				<th class="header" class:left scope="col"
-					>{strings ? strings[itemKey] || itemKey : itemKey}</th
-				>
-			{/each}
-		</tr>
-	</thead>
-	<tbody>
-		{#each items as item}
-			<tr class="row" class:striped>
-				{#each Object.values(item) as value}
-					<td class="cell" class:center>{value}</td>
-				{/each}
-			</tr>
-		{/each}
-	</tbody>
+  <thead class="head">
+    <tr>
+      {#each Object.keys(items[0]) as itemKey}
+        <th class="header" class:left scope="col">
+          {strings ? strings[itemKey] || itemKey : itemKey}
+        </th>
+      {/each}
+    </tr>
+  </thead>
+  <tbody>
+    {#each items as item}
+      <tr class="row" class:striped>
+        {#each Object.values(item) as value}
+          <td class="cell" class:center>{value}</td>
+        {/each}
+      </tr>
+    {/each}
+  </tbody>
 </table>
 
 <style scoped>.table {

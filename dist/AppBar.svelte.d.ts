@@ -1,23 +1,9 @@
-interface $$__sveltets_2_IsomorphicComponent<Props extends Record<string, any> = any, Events extends Record<string, any> = any, Slots extends Record<string, any> = any, Exports = {}, Bindings = string> {
-    new (options: import('svelte').ComponentConstructorOptions<Props>): import('svelte').SvelteComponent<Props, Events, Slots> & {
-        $$bindings?: Bindings;
-    } & Exports;
-    (internal: unknown, props: Props & {
-        $$events?: Events;
-        $$slots?: Slots;
-    }): Exports & {
-        $set?: any;
-        $on?: any;
-    };
-    z_$$bindings?: Bindings;
-}
-declare const AppBar: $$__sveltets_2_IsomorphicComponent<{
-    color?: "primary" | "secondary";
+type $$ComponentProps = {
+    color?: 'primary' | 'secondary';
     title?: string;
     textColor?: string;
     iconColor?: string;
-}, {
-    [evt: string]: CustomEvent<any>;
-}, {}, {}, "">;
-type AppBar = InstanceType<typeof AppBar>;
+};
+declare const AppBar: import("svelte").Component<$$ComponentProps, {}, "">;
+type AppBar = ReturnType<typeof AppBar>;
 export default AppBar;

@@ -30,7 +30,6 @@
 </div>
 
 <style lang="scss" scoped>
-  @import '../style/variables';
 
   .wrapper {
     position: fixed;

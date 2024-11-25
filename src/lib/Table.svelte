@@ -22,9 +22,9 @@
   <thead class="head">
     <tr>
       {#each Object.keys(items[0]) as itemKey}
-        <th class="header" class:left scope="col"
-          >{strings ? strings[itemKey] || itemKey : itemKey}</th
-        >
+        <th class="header" class:left scope="col">
+          {strings ? strings[itemKey] || itemKey : itemKey}
+        </th>
       {/each}
     </tr>
   </thead>

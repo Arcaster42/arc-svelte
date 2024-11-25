@@ -23,8 +23,8 @@
 <input type="time" list="times" {value} {min} {max} />
 <datalist id="times">
   {#each Array.from({ length: 24 }, (_, i) => i
-      .toString()
-      .padStart(2, '0')) as hour}
+    .toString()
+    .padStart(2, '0')) as hour}
     {#each getIncrements() as minute}
       {#if bookedTimes?.includes(`${hour}:${minute}`)}
         <option value={`${hour}:${minute}`} disabled></option>

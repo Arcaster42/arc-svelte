@@ -165,7 +165,7 @@
                   selectedMonth === currMonth}
                 class:selected={(day &&
                   start &&
-                  new Date(selectedYear, selectedMonth, day).getTime() ===
+                  new Date(selectedYear, selectedMonth, day).getTime() === 
                     start.getTime()) ||
                   (day &&
                     start &&

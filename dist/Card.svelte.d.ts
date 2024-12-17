@@ -1,4 +1,4 @@
-import type { Snippet } from 'svelte';
+import { type Snippet } from 'svelte';
 type $$ComponentProps = {
     titleSnippet?: Snippet;
     subtitleSnippet?: Snippet;
@@ -6,6 +6,7 @@ type $$ComponentProps = {
     actionsSnippet?: Snippet;
     width?: string;
     height?: string;
+    draggable?: boolean;
 };
 declare const Card: import("svelte").Component<$$ComponentProps, {}, "">;
 type Card = ReturnType<typeof Card>;

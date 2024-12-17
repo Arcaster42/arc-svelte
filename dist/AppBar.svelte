@@ -4,29 +4,37 @@
   const {
     color = 'primary',
     title,
-    textColor = 'white'
+    textColor = 'white',
+    menuItems,
+    routingItems
   }: {
     color?: 'primary' | 'secondary'
     title?: string
     textColor?: string
     iconColor?: string
+    menuItems?: { label: string; path: string }[]
+    routingItems?: { label: string; path: string }[]
   } = $props()
-  const menuItems = [
-    { label: 'Item 1' },
-    { label: 'Item 2' },
-    { label: 'Item 3' }
-  ]
 </script>
 
 <div class={`wrapper ${color} ${textColor}`}>
-  <Menu
-    label="AppBar"
-    items={menuItems}
-    buttonType="icon"
-    icon="mdiMenu"
-    {textColor}
-  />
+  {#if menuItems}
+    <Menu
+      label="AppBar"
+      items={menuItems}
+      buttonType="icon"
+      icon="mdiMenu"
+      {textColor}
+    />
+  {/if}
   <span class="title" style={`color: ${textColor}`}>{title}</span>
+  {#if routingItems}
+    <div class="routing">
+      {#each routingItems as item}
+        <div class="route" style={`color: ${textColor}`}>{item.label}</div>
+      {/each}
+    </div>
+  {/if}
 </div>
 
 <style scoped>.wrapper {
@@ -36,10 +44,33 @@
   height: 60px;
   display: flex;
   align-items: center;
-  width: 100%;
+  width: 1000px;
+  background-color: #3498db;
+  padding-left: 10px;
 }
 .wrapper .title {
+  margin-left: 20px;
+  margin-right: 20px;
+  min-width: max-content;
+  flex-grow: 1;
   font-size: x-large;
   font-family: Roboto;
   text-transform: uppercase;
+}
+.wrapper .routing {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.wrapper .routing .route {
+  margin-left: 20px;
+  font-size: large;
+  border-bottom: 2px solid white;
+  align-content: center;
+  cursor: pointer;
+  transition: ease-in-out 0.3s;
+}
+.wrapper .routing .route:hover {
+  border-bottom: 2px solid blue;
 }</style>

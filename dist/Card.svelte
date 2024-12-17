@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Snippet } from 'svelte'
+  import { onMount, type Snippet } from 'svelte'
 
   const {
     titleSnippet,
@@ -7,7 +7,8 @@
     contentSnippet,
     actionsSnippet,
     width = '300px',
-    height = '300px'
+    height = '300px',
+    draggable
   }: {
     titleSnippet?: Snippet
     subtitleSnippet?: Snippet
@@ -15,10 +16,19 @@
     actionsSnippet?: Snippet
     width?: string
     height?: string
+    draggable?: boolean
   } = $props()
+
+  let cardElement: HTMLDivElement
+
+  onMount(() => {
+    cardElement.addEventListener('dragstart', (event) => {
+      event.dataTransfer?.setData('text/plain', 'This text may be dragged')
+    })
+  })
 </script>
 
-<div class="card" style:height style:width>
+<div class="card" style:height style:width bind:this={cardElement} {draggable}>
   {#if titleSnippet}
     <div class="title">
       {@render titleSnippet()}

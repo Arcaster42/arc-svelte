@@ -3,7 +3,7 @@ type $$ComponentProps = {
     label: string;
     items: {
         label: string;
-        link?: string;
+        path: string;
     }[];
     buttonType?: ButtonType;
     icon?: keyof typeof import('@mdi/js');

@@ -2,15 +2,13 @@
   const {
     title,
     items,
-    strings,
     center,
     left,
     striped,
     width = '80%'
   }: {
     title?: string
-    items: any[]
-    strings?: { [key: string]: string }
+    items: object[]
     center?: boolean
     left?: boolean
     striped?: boolean
@@ -23,7 +21,7 @@
     <tr>
       {#each Object.keys(items[0]) as itemKey}
         <th class="header" class:left scope="col">
-          {strings ? strings[itemKey] || itemKey : itemKey}
+          {itemKey}
         </th>
       {/each}
     </tr>
@@ -48,7 +46,8 @@
 .table .header {
   font-weight: bold;
   border-right: 1px solid black;
-  background-color: lightblue;
+  background-color: #3498db;
+  color: white;
 }
 .table .header.left {
   text-align: left;
@@ -68,7 +67,7 @@
   border-right: 1px solid black;
 }
 .row:hover {
-  background-color: rgba(75, 215, 196, 0.3) !important;
+  background-color: #86bbdf;
 }
 
 tr.striped:nth-of-type(even) {

@@ -12,7 +12,7 @@
     textColor
   }: {
     label: string
-    items: { label: string; link?: string }[]
+    items: { label: string; path: string }[]
     buttonType?: ButtonType
     icon?: keyof typeof import('@mdi/js')
     textColor?: string

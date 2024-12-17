@@ -5,6 +5,7 @@ type $$ComponentProps = {
     size?: Size;
     width?: string;
     height?: string;
+    center?: boolean;
 };
 declare const Icon: import("svelte").Component<$$ComponentProps, {}, "">;
 type Icon = ReturnType<typeof Icon>;

@@ -11,3 +11,5 @@ export { default as Table } from './Table.svelte';
 export { default as DatePicker } from './DatePicker.svelte';
 export { default as TimePicker } from './TimePicker.svelte';
 export { default as Calendar } from './Calendar.svelte';
+export { default as Modal } from './Modal.svelte';
+export { default as Chip } from './Chip.svelte';

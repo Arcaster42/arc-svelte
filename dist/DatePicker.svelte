@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte'
   import Button from './Button.svelte'
+  import { fly } from 'svelte/transition'
 
   let {
     start = $bindable(),
@@ -14,23 +15,20 @@
     allowRange?: boolean
   } = $props()
 
-  let currYear = $state(0)
   let selectedYear = $state(0)
   let currMonth = $state(0)
   let selectedMonth = $state(0)
-  let currDay = $state(0)
   let selectedDay = $state(0)
   let startingDay = $state(0)
   let maxDays = $state(0)
   const date = new Date(Date.now())
   let rows: (number | null)[][] = $state([])
+  let showBody = $state(true)
 
   onMount(() => {
-    currYear = date.getFullYear()
     selectedYear = date.getFullYear()
     currMonth = date.getMonth()
     selectedMonth = date.getMonth()
-    currDay = date.getDate()
     selectedDay = date.getDate()
     startingDay = new Date(date.getFullYear(), date.getMonth(), 1).getDay()
     maxDays = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate()
@@ -50,6 +48,7 @@
   }
 
   function selectMonth(month: number) {
+    animate()
     if (month < 0) {
       selectedYear--
       month = 11
@@ -90,6 +89,13 @@
       end = undefined
     }
   }
+
+  function animate() {
+    showBody = false
+    setTimeout(() => {
+      showBody = true
+    }, 100)
+  }
 </script>
 
 {#if rows.length}
@@ -129,9 +135,16 @@
             />
           </th>
           <th colspan="5">
-            {new Date(selectedYear, selectedMonth).toLocaleString('default', {
-              month: 'long'
-            })}
+            {#if showBody}
+              <span transition:fly={{ duration: 300 }}>
+                {new Date(selectedYear, selectedMonth).toLocaleString(
+                  'default',
+                  {
+                    month: 'long'
+                  }
+                )}
+              </span>
+            {/if}
           </th>
           <th colspan="1">
             <Button
@@ -165,7 +178,7 @@
                   selectedMonth === currMonth}
                 class:selected={(day &&
                   start &&
-                  new Date(selectedYear, selectedMonth, day).getTime() === 
+                  new Date(selectedYear, selectedMonth, day).getTime() ===
                     start.getTime()) ||
                   (day &&
                     start &&

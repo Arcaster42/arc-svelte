@@ -1,9 +1,6 @@
 type $$ComponentProps = {
     title?: string;
-    items: any[];
-    strings?: {
-        [key: string]: string;
-    };
+    items: object[];
     center?: boolean;
     left?: boolean;
     striped?: boolean;

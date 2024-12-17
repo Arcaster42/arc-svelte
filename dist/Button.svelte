@@ -133,13 +133,13 @@
 
 .none {
   color: black;
-  background-color: #ffffff;
+  background-color: #c4c4c4;
 }
 .none:hover {
-  background-color: #eeeeee;
+  background-color: #b5b5b5;
 }
 .none:hover:active {
-  background-color: #cacaca;
+  background-color: #8f8f8f;
 }
 
 .primary {
